@@ -3,6 +3,7 @@
 import os
 from distutils.core import setup
 
+print()
 setup(name = "unixpath",
 	version = "1.0",
 	author = "Shawn Rupp",
@@ -10,3 +11,4 @@ setup(name = "unixpath",
 	description = "Common functions for manipulating paths in unix platforms.",
 	url = "https://github.com/icwells/unixpath",
 	py_modules = ["unixpath"])
+print()
