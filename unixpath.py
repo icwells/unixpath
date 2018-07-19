@@ -25,3 +25,12 @@ def getExt(name):
 def getFileName(path):
 	# Returns filename sans path and extension
 	return path[path.rfind("/")+1:path.find(".")]
+
+def getParent(path):
+	# Returns parent directory from path
+	if "." in path and path [-1] != "/":
+		# Drop filename
+		path = path[:path.rfind("/")]
+	elif path [-1] == "/":
+		path = path[:-1]
+	return path[path.rfind("/")+1:]
