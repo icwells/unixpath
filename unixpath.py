@@ -8,7 +8,8 @@ def checkDir(path, make = False):
 		path += "/"
 	if os.path.isdir(path) == False:
 		if make == False:
-			raise NotADirectoryError(("{} not found.").format(path))
+			print(("\n\t[Error] {} not found. Exiting.\n").format(path))
+			quit()
 		else:
 			os.mkdir(path)
 	return path
@@ -16,7 +17,8 @@ def checkDir(path, make = False):
 def checkFile(infile):
 	# Raises if infile is not found
 	if not os.path.isfile(infile):
-		raise FileNotFoundError(("{} not found").format(infile))
+		print(("\n\t[Error] {} not found. Exiting.\n").format(infile))
+		quit()
 
 def getExt(name):
 	# Returns extension from filename
