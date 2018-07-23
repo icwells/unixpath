@@ -30,7 +30,7 @@ def getFileName(path):
 
 def getParent(path):
 	# Returns parent directory from path
-	if "." in path and path [-1] != "/":
+	if "." in path and path[-1] != "/":
 		# Drop filename
 		path = path[:path.rfind("/")]
 	elif path [-1] == "/":
