@@ -15,8 +15,8 @@ Copyright 2018 by Shawn Rupp
 ## Usage  
 
 	import unixpath
-or
-	from unixpath import *
+or  
+	from unixpath import *  
 
 #### unixpath.checkDir(path, make = False)  
 If the directory does not exist and make is False, it will raise a NotADirectoryError. If make is True, it will make the directory.  
