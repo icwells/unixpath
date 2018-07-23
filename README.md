@@ -14,8 +14,10 @@ Copyright 2018 by Shawn Rupp
 
 ## Usage  
 
-	import unixpath
+	import unixpath  
+
 or  
+
 	from unixpath import *  
 
 #### unixpath.checkDir(path, make = False)  
