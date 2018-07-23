@@ -33,6 +33,6 @@ def getParent(path):
 	if "." in path and path[-1] != "/":
 		# Drop filename
 		path = path[:path.rfind("/")]
-	elif path [-1] == "/":
+	elif path[-1] == "/":
 		path = path[:-1]
 	return path[path.rfind("/")+1:]
