@@ -14,12 +14,16 @@ Copyright 2018 by Shawn Rupp
 
 ## Usage  
 
+	import unixpath
+or
+	from unixpath import *
+
 #### unixpath.checkDir(path, make = False)  
 If the directory does not exist and make is False, it will raise a NotADirectoryError. If make is True, it will make the directory.  
 If an error was not raised, it returns the path name with a trailing slash (if the input name did not have one).  
 
 #### unixpath.checkFile(infile)
-Raises a FileNotFoundError if the file doesn not exist.   
+Raises a FileNotFoundError if the file does not exist.   
 
 #### unixpath.getExt(name)
 Returns the extension (everything after last period) from the filename.  
