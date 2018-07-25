@@ -2,23 +2,30 @@
 
 import os
 
+def __printError__(msg):
+	# Prints formatted error message and exits
+	print(("\n\t[Error] {}. Exiting.\n").format(msg))
+	quit()
+
 def checkDir(path, make = False):
 	# Checks if path exists, throws error if make is false, makes dir if true, returns formatted name
+	if type(path) != str:
+		__printError__(("{} is not a string").format(infile))
 	if path[-1] != "/":
 		path += "/"
 	if os.path.isdir(path) == False:
 		if make == False:
-			print(("\n\t[Error] {} not found. Exiting.\n").format(path))
-			quit()
+			__printError__(("{} not found").format(path))
 		else:
 			os.mkdir(path)
 	return path
 
 def checkFile(infile):
 	# Raises if infile is not found
+	if type(infile) != str:
+		__printError__(("{} is not a string").format(infile))
 	if not os.path.isfile(infile):
-		print(("\n\t[Error] {} not found. Exiting.\n").format(infile))
-		quit()
+		__printError__(("{} not found").format(infile))
 
 def getExt(name):
 	# Returns extension from filename
