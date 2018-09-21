@@ -4,7 +4,7 @@ import os
 
 def __printError__(msg):
 	# Prints formatted error message and exits
-	print(("\n\t[Error] {}. Exiting.\n").format(msg))
+	print(("\n\t[Error] {}. Exiting.\n", file = sys.stderr).format(msg))
 	quit()
 
 def checkDir(path, make = False):
