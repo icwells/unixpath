@@ -1,10 +1,11 @@
 '''This script contains common functions for manipulating paths in unix platforms.'''
 
 import os
+from sys import stderr
 
 def __printError__(msg):
 	# Prints formatted error message and exits
-	print(("\n\t[Error] {}. Exiting.\n").format(msg), file = sys.stderr)
+	print(("\n\t[Error] {}. Exiting.\n").format(msg), file = stderr)
 	quit()
 
 def checkDir(path, make = False):
