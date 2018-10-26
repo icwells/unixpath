@@ -44,3 +44,10 @@ def getParent(path):
 	elif path[-1] == "/":
 		path = path[:-1]
 	return path[path.rfind("/")+1:]
+
+def getDelim(line):
+	# Returns delimiter from test file
+	for i in ["\t", ",", " "]:
+		if i in line:
+			return i
+	printError("Cannot determine delimeter. Check file formatting")

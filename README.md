@@ -35,3 +35,6 @@ Returns the filename stem (everything between last slash and first period) from 
 
 #### unixpath.getParent(path)   
 Returns parent directory from path (i.e. the last directory name in the path).  
+
+#### unixpath.getDelim(line)   
+Returns delimiter from a test file.  
