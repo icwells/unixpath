@@ -38,3 +38,8 @@ Returns parent directory from path (i.e. the last directory name in the path).
 
 #### unixpath.getDelim(line)   
 Returns delimiter from a test file.  
+
+#### unixpath.runProc(cmd, log = None)  
+Wraps call to Popen, writes stdout/stdout err to log if given. If no log is given, stdout and stderr is written to os.devnull 
+(i.e. it is discarded). Lastly, if "stdout" or "stderr" is given for log, stdout will be written to standard output and stderr will 
+be written to stderr. Returns True if no errors are encountered. Otherwise returns False.  

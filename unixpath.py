@@ -2,6 +2,9 @@
 
 import os
 from sys import stderr
+from subprocess import Popen
+from shlex import split
+from sys import stderr, stdout
 
 def __printError__(msg):
 	# Prints formatted error message and exits
@@ -51,3 +54,36 @@ def getDelim(line):
 		if i in line:
 			return i
 	printError("Cannot determine delimeter. Check file formatting")
+
+def __callProc__(cmd, sout, serr):
+	# Calls process with given command and output
+	try:
+		call = Popen(split(cmd), stdout = sout, stderr = serr)
+		call.wait()
+		if call.returncode is not None:
+			return True
+		else:
+			return False
+	except:
+		s = cmd.split()
+		proc = s[0]
+		if "-" not in s[1]:
+			# Get subcommand if present
+			proc += " " + s[1]
+		elif proc == "java":
+			# Replace call to jar with name of jar
+			proc = getFileName(s[2])
+		print(("\t[Warning] Could not call {}").format(proc), file=stderr)
+		return False
+
+def runProc(cmd, log = None):
+	# Wraps call to Popen, writes stdout/stdout err to log/devnull/stdout&stderr, returns True if no errors
+	if not log:
+		log = os.devnull
+	if log == "stdout" or log == "stderr":
+		# Pipe output to stdout/err
+		return __callProc__(cmd, stdout, stderr)
+	else:
+		with open(log, "w") as out:
+			# Pipe output to log
+			return __callProc__(cmd, out, out)
