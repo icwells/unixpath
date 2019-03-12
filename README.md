@@ -1,3 +1,4 @@
+[![Build Status](https://travis-ci.com/icwells/unixpath.svg?branch=master)](https://travis-ci.com/icwells/unixpath)
 # unixpath v1.0 contains common functions for manipulating paths on unix platforms.  
 
 ### Specifically it contains functions which are not included in os.path or which combine functions in ways that, honestly, I'm just sick of writing.  
