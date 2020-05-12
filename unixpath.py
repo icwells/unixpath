@@ -53,7 +53,7 @@ def getDelim(line):
 	for i in ["\t", ",", " "]:
 		if i in line:
 			return i
-	printError("Cannot determine delimeter. Check file formatting")
+	__printError__("Cannot determine delimeter. Check file formatting")
 
 def __callProc__(cmd, sout, serr):
 	# Calls process with given command and output
