@@ -48,12 +48,36 @@ def getParent(path):
 		path = path[:-1]
 	return path[path.rfind(os.path.sep)+1:]
 
+def getHeader(row):
+	# GetHeader returns a dict of header column names to indeces.
+	ret = {}
+	for idx, i in enumerate(row):
+		ret[i.strip()] = idx
+	return ret
+
 def getDelim(line):
 	# Returns delimiter from test file
 	for i in ["\t", ",", " "]:
 		if i in line:
 			return i
 	__printError__("Cannot determine delimeter. Check file formatting")
+
+def readFile(infile, header = True):
+	# Creates generator to read file line by line
+	first = True
+	checkFile(infile)
+	with open(infile, "r") as f:
+		for line in f:
+			line = line.strip()
+			if not first:
+				yield line.split(d)
+			else:
+				d = getDelim(line)
+				if header:
+					yield getHeader(line.split(d))
+				else:
+					yield line.split(d)
+				first = False
 
 def __callProc__(cmd, sout, serr):
 	# Calls process with given command and output
