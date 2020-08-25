@@ -37,7 +37,8 @@ def getExt(name):
 
 def getFileName(path):
 	# Returns filename sans path and extension
-	return path[path.rfind(os.path.sep)+1:path.find(".")]
+	ret = path[path.rfind(os.path.sep)+1:]
+	return ret[:ret.find(".")]
 
 def getParent(path):
 	# Returns parent directory from path
