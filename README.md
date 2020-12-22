@@ -40,6 +40,12 @@ Returns parent directory from path (i.e. the last directory name in the path).
 #### unixpath.getDelim(line)   
 Returns delimiter from a test file.  
 
+#### unixpath.getHeader(row)
+Returns a dictionary of header column names to indeces (e.g. {"ID": 0, "Name": 1}).
+
+#### unixpath.readFile(filename, header = True)
+Creates generator to read given file name line by line. Calls getHeader on the first row if header == True.
+
 #### unixpath.runProc(cmd, log = None)  
 Wraps call to Popen, writes stdout/stdout err to log if given. If no log is given, stdout and stderr is written to os.devnull 
 (i.e. it is discarded). Lastly, if "stdout" or "stderr" is given for log, stdout will be written to standard output and stderr will 
