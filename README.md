@@ -43,8 +43,8 @@ Returns delimiter from a test file.
 #### unixpath.getHeader(row)
 Returns a dictionary of header column names to indeces (e.g. {"ID": 0, "Name": 1}).
 
-#### unixpath.readFile(filename, header = True)
-Creates generator to read given file name line by line. Calls getHeader on the first row if header == True.
+#### unixpath.readFile(filename, header = True, d = None)
+Creates generator to read given file name line by line. Calls getHeader on the first row if header == True. Attempts to identify delimeter if d is None.  
 
 #### unixpath.runProc(cmd, log = None)  
 Wraps call to Popen, writes stdout/stdout err to log if given. If no log is given, stdout and stderr is written to os.devnull 

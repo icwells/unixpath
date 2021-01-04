@@ -63,7 +63,7 @@ def getDelim(line):
 			return i
 	__printError__("Cannot determine delimeter. Check file formatting")
 
-def readFile(infile, header = True):
+def readFile(infile, header = True, d = None):
 	# Creates generator to read file line by line
 	first = True
 	checkFile(infile)
@@ -73,7 +73,8 @@ def readFile(infile, header = True):
 			if not first:
 				yield line.split(d)
 			else:
-				d = getDelim(line)
+				if d is None:
+					d = getDelim(line)
 				if header:
 					yield getHeader(line.split(d))
 				else:
